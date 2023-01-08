@@ -96,20 +96,98 @@ function getPasswordOptions() {
   // numeric
   // special
 }
+
+var userOptions = {};
+
+var howMany = function () {
+  var numOfChar = Number(
+    prompt("How many characters would you like in your password? (between 10-64)")
+  );
+
+  // create a condition to the numbers of characters
+  if (numOfChar >= 10 && numOfChar <= 64) {
+    return numOfChar;
+  } else {
+    alert(
+      "Sorry, your password needs a minimum of 10 characters and no more than 64. Please try again."
+    );
+    return howMany();
+  }
+};
+
+var characters = function () {
+  var char = {
+    lowCase: confirm("Would you like lower case letters in your password?"),
+    upCase: confirm("Would you like upper case letters in your password?"),
+    numCase: confirm("Would you like numeric characters in your password?"),
+    specialCase: confirm("Would you like special characters in your password?"),
+  };
+
+ // Code should validate for each input and at least one character type should be selected.
+ if (char.lowCase || char.upCase || char.numCase || char.specialCase) {
+  return char;
+} else {
+  alert("At least one character type should be selected, Please try again.");
+  return characters();
+}
+};
+
 function getPasswordOptions() {
+  userOptions = {
+    numOfChar: howMany(),
+    userCharacters: characters(),
+  }
 
 }
 
 // Function for getting a random element from an array
 function getRandom(arr) {
+  // retrieve random index of array
+  const i = Math.floor(Math.random() * arr.length);
+
+  // retrieve item using random index
+  const item = arr[i];
+
+  return item;
 
 }
+
+var special = getRandom(specialCharacters);
+var numberic = getRandom(numbericCharacters);
+var lowerCase = getRandom(lowerCasedCharacters);
+var upperCase = getRandom(upperCasedCharacters);
+
 
 // Function to generate password with user input
 function generatePassword() {
-  return "I'm generating a password"
+  getPasswordOptions();
 
-}
+  var userChar = userOptions.userCharacters;
+
+  var charArrayMode1 = [];
+  var pass = []
+
+  for (let i = 0; i <userOptions.numOfChar; i++) {
+    // Run user option functions
+    if(userChar.Char.lowCase){
+      charArrayMode1.push(getRandom(loweverCasedCharacters))
+    }if(userChar.upCase){
+      charArrayMode1.push(getRandom(upperCasedCharacters))
+    }if(userChar.numCase){
+      charArrayMode1.push(getRandom(numericCharacters))
+    }if(userChar.specialCase){
+      charArrayMode1.push(getRandom(specialCharacters))
+    }
+
+    // Populate the pass array repeating charArrayMode1
+    pass.push(charArrayModel[i % charArrayMode1.length])
+    }
+
+    
+    // Console.log 
+    return pass.join("");
+  }
+  
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
