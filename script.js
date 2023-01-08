@@ -88,15 +88,6 @@ var upperCasedCharacters = [
   'Z'
 ];
 
-// Function to prompt user for password options
-function getPasswordOptions() {
-  // At least 10 characters but no more than 64.
-  // lowercase
-  // uppercase
-  // numeric
-  // special
-}
-
 var userOptions = {};
 
 var howMany = function () {
@@ -153,7 +144,7 @@ function getRandom(arr) {
 }
 
 var special = getRandom(specialCharacters);
-var numberic = getRandom(numbericCharacters);
+var numeric = getRandom(numericCharacters);
 var lowerCase = getRandom(lowerCasedCharacters);
 var upperCase = getRandom(upperCasedCharacters);
 
@@ -164,30 +155,30 @@ function generatePassword() {
 
   var userChar = userOptions.userCharacters;
 
-  var charArrayMode1 = [];
+  var charArrayModel = [];
   var pass = []
 
   for (let i = 0; i <userOptions.numOfChar; i++) {
     // Run user option functions
-    if(userChar.Char.lowCase){
-      charArrayMode1.push(getRandom(loweverCasedCharacters))
+    if(userChar.lowCase){
+      charArrayModel.push(getRandom(lowerCasedCharacters))
     }if(userChar.upCase){
-      charArrayMode1.push(getRandom(upperCasedCharacters))
+      charArrayModel.push(getRandom(upperCasedCharacters))
     }if(userChar.numCase){
-      charArrayMode1.push(getRandom(numericCharacters))
+      charArrayModel.push(getRandom(numericCharacters))
     }if(userChar.specialCase){
-      charArrayMode1.push(getRandom(specialCharacters))
+      charArrayModel.push(getRandom(specialCharacters))
     }
 
     // Populate the pass array repeating charArrayMode1
-    pass.push(charArrayModel[i % charArrayMode1.length])
+    pass.push(charArrayModel[i % charArrayModel.length])
     }
 
     
     // Console.log 
     return pass.join("");
   }
-  
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
