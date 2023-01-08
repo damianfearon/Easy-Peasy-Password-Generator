@@ -92,7 +92,7 @@ var userOptions = {};
 
 var howMany = function () {
   var numOfChar = Number(
-    prompt("How many characters would you like in your password? (between 10-64)")
+    prompt("Welcome, how many characters would you like in your password? (between 10-64)")
   );
 
   // create a condition to the numbers of characters
@@ -100,7 +100,7 @@ var howMany = function () {
     return numOfChar;
   } else {
     alert(
-      "Sorry, your password needs a minimum of 10 characters and no more than 64. Please try again."
+      "Sorry, your password requires a minimum of 10 characters and no more than 64. Please try again."
     );
     return howMany();
   }
@@ -108,10 +108,10 @@ var howMany = function () {
 
 var characters = function () {
   var char = {
-    lowCase: confirm("Would you like lower case letters in your password?"),
-    upCase: confirm("Would you like upper case letters in your password?"),
-    numCase: confirm("Would you like numeric characters in your password?"),
-    specialCase: confirm("Would you like special characters in your password?"),
+    lowCase: confirm("Would you like lowercase letters in your password? (eg. abc)"),
+    upCase: confirm("Would you like uppercase letters in your password? (eg. ABC)"),
+    numCase: confirm("Would you like numeric characters in your password? (eg. 123)"),
+    specialCase: confirm("Would you like special characters in your password? (eg. !£$)"),
   };
 
  // Code should validate for each input and at least one character type should be selected.
