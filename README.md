@@ -1,6 +1,7 @@
 #
 <h1>Password Generator</h1>
 
+[Deployed Site](https://damianfearon.github.io/Easy-Peasy-Password-Generator/)</br>
 [Github Repo](https://github.com/damianfearon/Easy-Peasy-Password-Generator)</br>
 [HTML](https://github.com/damianfearon/Easy-Peasy-Password-Generator/blob/main/index.html)</br>
 [JS](https://github.com/damianfearon/Easy-Peasy-Password-Generator/blob/main/script.js)</br>
